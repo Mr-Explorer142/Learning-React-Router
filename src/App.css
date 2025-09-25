@@ -1,0 +1,9 @@
+.form-bg {
+    background-color: #d3efd7;
+}
+
+@media (min-width: 992px) { /* Bootstrap's 'lg' breakpoint */
+  .w-lg-50-custom {
+    width: 50% !important;
+  }
+}

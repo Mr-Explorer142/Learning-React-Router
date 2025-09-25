@@ -1,0 +1,89 @@
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+
+const Header = () => {
+  return (
+    <>
+      <header>
+        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+          <div className="container-fluid">
+            <Link className="navbar-brand text-white" aria-current="page" to="/">
+              Explorer
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto py-2">
+                {/* Home */}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-white"
+                    aria-current="page"
+                    to="/"
+                  >
+                    Home
+                  </Link>
+                </li>
+                {/* Products */}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-white"
+                    aria-current="page"
+                    to="/products"
+                  >
+                    Products
+                  </Link>
+                </li>
+                {/* Contact */}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-white"
+                    aria-current="page"
+                    to="/about"
+                  >
+                    About
+                  </Link>
+                </li>
+                {/* Contact */}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-white"
+                    aria-current="page"
+                    to="/contact"
+                  >
+                    Contact
+                  </Link>
+                </li>
+                {/* Sign In */}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-white bg-success rounded btn btn-success d-inline-block p-2 ms-lg-2"
+                    aria-current="page"
+                    to="/sign-in"
+                  >
+                    Sign In 
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      {/* Main */}
+      <main>
+        <Outlet></Outlet>
+      </main>
+    </>
+  );
+};
+
+export default Header;

@@ -8,7 +8,7 @@ const Profile = () => {
     <>
       {state ? (
         <div className="container d-flex justify-content-center mt-5">
-          <div className="card w-25 shadow-sm">
+          <div className="card w-25 shadow-sm border border-success">
             <div className="card-body">
               <h5 className="card-title text-primary fw-bold">
                 User Information

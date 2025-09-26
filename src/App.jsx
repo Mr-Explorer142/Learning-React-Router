@@ -8,11 +8,13 @@ import Products from "./pages/Products";
 function App() {
   return (
     <>
-      <Home></Home>
-      <Products></Products>
-      <NotFound></NotFound>
-      <About></About>
-      <Contact></Contact>
+      <div className="body-bg">
+        <Home></Home>
+        <Products></Products>
+        <NotFound></NotFound>
+        <About></About>
+        <Contact></Contact>
+      </div>
     </>
   );
 }

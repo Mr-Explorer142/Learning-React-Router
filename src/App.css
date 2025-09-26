@@ -1,5 +1,5 @@
-.form-bg {
-    background-color: #d3efd7;
+.body-bg {
+    background-color: rgb(179, 118, 118) !important;
 }
 
 @media (min-width: 992px) { /* Bootstrap's 'lg' breakpoint */

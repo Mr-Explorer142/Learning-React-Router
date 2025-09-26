@@ -29,7 +29,7 @@ const SignIn = () => {
     <>
       <div className="container d-flex justify-content-center align-items-center">
         <div className="mt-5 p-4 w-100 w-lg-50-custom">
-          <form className="form-bg p-5 rounded-3" onSubmit={handleOnSubmit}>
+          <form className="border border-2 border-success form-bg p-5 rounded-3" onSubmit={handleOnSubmit}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
@@ -38,7 +38,7 @@ const SignIn = () => {
                 type="email"
                 ref={emailRef}
                 name="email"
-                className="form-control"
+                className="form-control border border-success"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
@@ -51,7 +51,7 @@ const SignIn = () => {
                 type="password"
                 ref={passwordRef}
                 name="password"
-                className="form-control"
+                className="form-control border-success"
                 id="exampleInputPassword1"
               />
             </div>

@@ -15,11 +15,13 @@ import NotFound from "./pages/NotFound.jsx";
 import Header from "./layout/Header.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import Profile from "./pages/Profile.jsx";
+import ProductDetails from "./components/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Header></Header>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
@@ -38,16 +40,16 @@ const router = createBrowserRouter([
         element: <Products></Products>,
       },
       {
+        path: "/products/:id",
+        element: <ProductDetails></ProductDetails>,
+      },
+      {
         path: "/about",
         element: <About></About>,
       },
       {
         path: "/contact",
         element: <Contact></Contact>,
-      },
-      {
-        path: "*",
-        element: <NotFound></NotFound>,
       },
     ],
   },

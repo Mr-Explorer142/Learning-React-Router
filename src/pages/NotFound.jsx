@@ -1,11 +1,18 @@
 import React from "react";
+import { useRouteError } from "react-router";
 
 const NotFound = () => {
+  const error = useRouteError();
+  console.log(error);
   return (
     <>
-      <div>
-        <h1 className="text-danger text-center mt-3">404 - Content Not Found🥲</h1>
-      </div>
+      {error && (
+        <div className="text-center fs-1 fw-bold text-danger p-5">
+          <div>🥲 {error.data}</div>
+          <div>Status Code : {error.status} 🙅</div>
+          <div>Status Text 📝 : {error.statusText}!</div>
+        </div>
+      )}
     </>
   );
 };

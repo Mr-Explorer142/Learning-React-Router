@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <header>
         <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-          <div className="container-fluid">
+          <div className="container-fluid mx-lg-5">
             <Link className="navbar-brand text-white" aria-current="page" to="/">
               Explorer
             </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router";
 
-const Profile = () => {
+const UserProfile = () => {
   const { state } = useLocation();
 
   return (
@@ -33,9 +33,16 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      ) : <p>No Profile exits!</p>}
+      ) : (
+        <div className="d-flex justify-content-center mt-5">
+          {" "}
+          <p className="fw-bold fs-1 text-center shadow-sm text-danger border border-5 border-danger p-5 rounded-4">
+            No Profile 🙅 exists!
+          </p>
+        </div>
+      )}
     </>
   );
 };
 
-export default Profile;
+export default UserProfile;

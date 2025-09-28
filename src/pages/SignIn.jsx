@@ -5,7 +5,6 @@ const SignIn = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
-
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -19,17 +18,21 @@ const SignIn = () => {
         city: "Dhaka",
         country: "Bangladesh",
       };
-      navigate("/profile", { state: user });
+      navigate("/dashboard/user/profile", { state: user });
     } else {
-      navigate("/sign-in");
+      navigate("/");
     }
   };
 
   return (
     <>
+      <h1 className="text-success text-center mt-5">Sign In 👤</h1>
       <div className="container d-flex justify-content-center align-items-center">
         <div className="mt-5 p-4 w-100 w-lg-50-custom">
-          <form className="border border-2 border-success form-bg p-5 rounded-3" onSubmit={handleOnSubmit}>
+          <form
+            className="border border-2 border-success form-bg p-5 rounded-3"
+            onSubmit={handleOnSubmit}
+          >
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
@@ -55,7 +58,10 @@ const SignIn = () => {
                 id="exampleInputPassword1"
               />
             </div>
-            <button type="submit" className="btn btn-success">
+            <button
+              type="submit"
+              className="btn btn-success"
+            >
               Submit
             </button>
           </form>

@@ -14,8 +14,15 @@ import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Header from "./layout/Header.jsx";
 import SignIn from "./pages/SignIn.jsx";
-import Profile from "./pages/Profile.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
+import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+import UserProfile from "./components/user/UserProfile.jsx";
+import UserOrder from "./components/user/UserOrder.jsx";
+import AdminProfile from "./components/admin/AdminProfile.jsx";
+import AdminProducts from "./components/admin/AdminProducts.jsx";
+import AdminCategories from "./components/admin/AdminCategories.jsx";
+import AdminManageUsers from "./components/admin/AdminManageUsers.jsx";
+import AdminRoute from "./routes/AdminRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,19 +32,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Products></Products>,
       },
       {
         path: "/sign-in",
-        element: <SignIn></SignIn>,
-      },
-      {
-        path: "/profile",
-        element: <Profile></Profile>,
-      },
-      {
-        path: "/products",
         element: <Products></Products>,
+      },
+      {
+        path: "/sign-out",
+        element: <SignIn></SignIn>,
       },
       {
         path: "/products/:id",
@@ -46,6 +49,42 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/dashboard/user",
+        element: <ProtectedRoute></ProtectedRoute>,
+        children: [
+          {
+            path: "profile",
+            element: <UserProfile></UserProfile>,
+          },
+          {
+            path: "orders",
+            element: <UserOrder></UserOrder>,
+          },
+        ],
+      },
+      {
+        path: "/dashboard/admin",
+        element: <AdminRoute></AdminRoute>,
+        children: [
+          {
+            path: "profile",
+            element: <AdminProfile></AdminProfile>,
+          },
+          {
+            path: "products",
+            element: <AdminProducts></AdminProducts>,
+          },
+          {
+            path: "categories",
+            element: <AdminCategories></AdminCategories>,
+          },
+          {
+            path: "users",
+            element: <AdminManageUsers></AdminManageUsers>,
+          },
+        ],
       },
       {
         path: "/contact",

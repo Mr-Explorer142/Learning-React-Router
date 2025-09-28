@@ -1,13 +1,28 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [isSignedIn, setIsSignedIn] = useState(false);
+    const handleSignedIn = () => {
+      setIsSignedIn(true);
+      navigate("/");
+    };
+
+    const handleSignedOut = () => {
+      setIsSignedIn(false);
+      navigate("/sign-in");
+    };
   return (
     <>
       <header>
         <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
           <div className="container-fluid mx-lg-5">
-            <Link className="navbar-brand text-white" aria-current="page" to="/">
+            <Link
+              className="navbar-brand text-white"
+              aria-current="page"
+              to="/"
+            >
               Explorer
             </Link>
             <button
@@ -33,17 +48,7 @@ const Header = () => {
                     Home
                   </Link>
                 </li>
-                {/* Products */}
-                <li className="nav-item">
-                  <Link
-                    className="nav-link text-white"
-                    aria-current="page"
-                    to="/products"
-                  >
-                    Products
-                  </Link>
-                </li>
-                {/* Contact */}
+                {/* About */}
                 <li className="nav-item">
                   <Link
                     className="nav-link text-white"
@@ -63,16 +68,36 @@ const Header = () => {
                     Contact
                   </Link>
                 </li>
-                {/* Sign In */}
-                <li className="nav-item">
-                  <Link
-                    className="nav-link text-white bg-success rounded btn btn-success d-inline-block p-2 ms-lg-2"
-                    aria-current="page"
-                    to="/sign-in"
-                  >
-                    Sign In 
-                  </Link>
-                </li>
+                {!isSignedIn && (
+                  <>
+                    {/* Sign In */}
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-white bg-success rounded btn btn-success d-inline-block p-2 ms-lg-2"
+                        aria-current="page"
+                        to="/sign-in"
+                        onClick={handleSignedIn}
+                      >
+                        Sign In
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {isSignedIn && (
+                  <>
+                    {/* Signout */}
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-white border border-success rounded btn btn-success d-inline-block p-2 ms-lg-2 mt-2"
+                        aria-current="page"
+                        to="/sign-out"
+                        onClick={handleSignedOut}
+                      >
+                        Sign Out
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>
